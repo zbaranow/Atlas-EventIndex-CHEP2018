@@ -158,9 +158,11 @@ The trigger count computation on a Spark cluster takes the majority of the wall 
 
 \section{Summary}
 \label{sec-7}
-Scalable data scan performance in combination with modern data processors (Spark, Impala) opens the system to new use cases on a filed of data exploration and analytics (like counting trigger correlations)
-
-
+The prototype and performed tests have proven that Atlas EventIndex can profit in many areas from migrating the core storage to Apache Kudu.
+Apache Kudu allows to maintain a hybrid system in a single piece of software. Notably, it enables features like streaming data ingestion, fast data access by index, columnar storage for analytics. 
+Migration to a new back-end brings some obvious costs to the project. It requires re-implementation of most of the current components. This however should bring a lot of simplification to the code as the vast of the logic needed so far is already build-in in existing frameworks that supports Kudu or in Kudu itself. Scalable data scan performance in combination with modern data processors (Spark, Impala) opens the system to new use cases on a filed of data exploration and analytics (like counting trigger correlations) \newline
+Out of many assets of Apache Kudu, there are also few downsides of it. The biggest one appears to be its maturity and production readiness - the product is available since 2 years, Although we have been running it stably for months without major problems there are no companies officially using Apache Kudu in production.
+In conclusion, feature-wise Apache Kudu appeared to be very strong, however from strategic point of view it is an unknown area. Is it there to stay for years? 
 
 \begin{thebibliography}{}
 
